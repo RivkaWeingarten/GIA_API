@@ -3,15 +3,14 @@ body{
     text-align: center;
     color:white;
 }
-img{
-    max-width: 100%;
-}
+
 
 .title{
-    color:white;
+    color:rgb(39, 28, 196);
     text-transform: uppercase;
     font-size: 50px;
-    text-shadow: 5px 5px rgb(0,0,0);
+    text-shadow: 5px 5px rgb(243, 237, 237);
+    
 }
 .btn{
     margin-top: 20px;
