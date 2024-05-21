@@ -27,7 +27,7 @@
     "server": "nodemon express/proxy.js",
     "build": "npm install && react-scripts build",
     "serve": "react-scripts serve -s build",
-    "client": "cd src && react-scripts start"
+    "client": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
