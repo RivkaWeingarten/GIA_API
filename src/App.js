@@ -26,6 +26,7 @@ function App() {
       if (response.status >= 200 && response.status < 300) {
         console.log("Request successful");
         const data = response.data;
+        console.log(`data is: ${data}`)
 
         if (data.errors && data.errors.length > 0) {
           // If there are errors in the response, set the error message

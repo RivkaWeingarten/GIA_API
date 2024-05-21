@@ -13,7 +13,22 @@ app.use(express.json());
 app.use(cors());
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '..', 'src', 'build')));
+// app.use(express.static(path.join(__dirname, '..', 'src', 'build')));
+
+if (process.env.NODE_ENV === 'production') {
+  const __dirname = path.resolve();
+
+  app.use(express.static(path.join(__dirname, '../build')));
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'))
+  );
+} else {
+  
+   app.get('/', (req, res) => {
+    res.send('API is running....');
+  });
+}
 
 // Proxy endpoint to forward requests to the GraphQL API
 app.post('/graphql', async (req, res) => {
@@ -41,7 +56,7 @@ app.post('/graphql', async (req, res) => {
 
 // Catchall handler to serve React's index.html file for any unmatched routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'src', 'build', 'index.html'));
+  // res.sendFile(path.join(__dirname, '..', 'src', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {

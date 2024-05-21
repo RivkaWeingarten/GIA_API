@@ -15,18 +15,19 @@
     "graphql-request": "^7.0.1",
     "graphql-tag": "^2.12.6",
     "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.0",
     "raw-loader": "^4.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-react\" \"npm run start-express\"",
-    "start-react": "react-scripts start",
-    "start-express": "node express/proxy.js",
-    "build": "react-scripts build",
+    "start": "node express/proxy.js",
+    "dev": "concurrently \"npm run server\" \"npm run client",
+    "server": "nodemon express/proxy.js",
+    "build": "npm install && react-scripts build",
     "serve": "react-scripts serve -s build",
-    "client": "cd src && npm start"
+    "client": "cd src && react-scripts start"
   },
   "eslintConfig": {
     "extends": [
